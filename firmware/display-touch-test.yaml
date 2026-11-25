@@ -1,0 +1,57 @@
+esphome:
+  name: panda-touch-display-test
+  friendly_name: Panda Touch Display Test
+
+packages:
+  hardware: !include packages/panda-hardware.yaml
+
+globals:
+  - id: touch_count
+    type: int
+    restore_value: no
+    initial_value: '0'
+
+touchscreen:
+  - platform: gt911
+    id: panel_touch
+    i2c_id: touch_i2c
+    interrupt_pin: GPIO40
+    reset_pin: GPIO41
+    display: panel
+    transform:
+      mirror_x: false
+      mirror_y: false
+      swap_xy: false
+    on_touch:
+      then:
+        - lambda: id(touch_count)++;
+
+lvgl:
+  displays:
+    - panel
+  touchscreens:
+    - panel_touch
+  pages:
+    - id: smoke_test
+      bg_color: 0x101820
+      widgets:
+        - label:
+            align: CENTER
+            text: "Panda Touch display and touch test"
+            text_font: montserrat_28
+            text_color: 0xE8F1F2
+        - label:
+            id: touch_count_label
+            align: CENTER
+            y: 52
+            text: "Touch count: 0"
+            text_font: montserrat_18
+            text_color: 0x8FA7B3
+
+interval:
+  - interval: 250ms
+    then:
+      - lvgl.label.update:
+          id: touch_count_label
+          text: !lambda |-
+            return std::string("Touch count: ") + std::to_string(id(touch_count));

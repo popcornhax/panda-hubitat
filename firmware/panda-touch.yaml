@@ -1,0 +1,33 @@
+esphome:
+  name: panda-touch
+  friendly_name: Panda Touch
+
+external_components:
+  - source:
+      type: local
+      path: ../components
+    components: [hubitat_local, hubitat_dashboard, dashboard_config]
+
+packages:
+  hardware: !include packages/panda-hardware.yaml
+  hubitat_app: !include generated-dashboard.yaml
+
+touchscreen:
+  - platform: gt911
+    id: panel_touch
+    i2c_id: touch_i2c
+    interrupt_pin: GPIO40
+    reset_pin: GPIO41
+    display: panel
+    transform:
+      mirror_x: false
+      mirror_y: false
+      swap_xy: false
+
+lvgl:
+  # The custom component creates the UI; suppress ESPHome's implicit demo.
+  widgets: []
+  displays:
+    - panel
+  touchscreens:
+    - panel_touch

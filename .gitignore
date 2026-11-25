@@ -1,0 +1,36 @@
+# Python environment and caches
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# ESPHome generated configuration and firmware artifacts
+.esphome/
+build/
+firmware/.esphome/
+firmware/build/
+firmware/private/
+firmware/devices.yaml
+firmware/generated-dashboard.yaml
+firmware/*.bin
+firmware/*.elf
+firmware/*.map
+firmware/*.factory.bin
+
+# Local credentials and validation-only secrets
+secrets.yaml
+secrets.local.yaml
+secrets.validation.yaml
+*.secrets.yaml
+
+# Editor and backup artifacts
+*.bak
+*.orig
+*~
+*.swp

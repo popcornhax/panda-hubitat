@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "theme": {
+    "background": 725536,
+    "panel": 1318704,
+    "text": 15857145,
+    "muted": 10136512,
+    "accent": 4839368
+  },
+  "font": "normal",
+  "pages": [
+    {
+      "label": "Home",
+      "title": "Good day",
+      "devices": [
+        1,
+        2
+      ]
+    },
+    {
+      "label": "Lights",
+      "title": "Lights",
+      "devices": [
+        1,
+        2
+      ]
+    },
+    {
+      "label": "Sensors",
+      "title": "Climate & sensors",
+      "devices": [
+        2
+      ]
+    }
+  ],
+  "labels": [
+    {
+      "id": 1,
+      "label": "Example device"
+    }
+  ],
+  "sleep": {
+    "enabled": false,
+    "motion_device_id": 0,
+    "timeout_seconds": 120,
+    "fade_ms": 800
+  }
+}
