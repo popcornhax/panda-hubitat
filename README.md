@@ -7,6 +7,8 @@ Hubitat's local [Maker API](https://docs2.hubitat.com/en/apps/maker-api) over
 the LAN. It does not use Home Assistant, the native ESPHome API, MQTT, or any
 cloud service.
 
+**Project page:** [popcornhax.github.io/panda-hubitat](https://popcornhax.github.io/panda-hubitat/)
+
 This repository contains only panel firmware and host-side helper scripts.
 There is no Hubitat driver or app to install on the hub; you use Hubitat's
 built-in Maker API app.
@@ -52,6 +54,7 @@ built-in Maker API app.
 | `tests/` | Host unit tests, including a native C++ state-logic test |
 | `examples/dashboard-layout.json` | Example layout for the browser editor |
 | `docs/` | Hubitat setup, layout editor, recovery, and validation notes |
+| `site/` | Static project page, published to GitHub Pages by `.github/workflows/pages.yml` |
 
 ## Status
 
